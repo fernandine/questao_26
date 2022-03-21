@@ -8,35 +8,36 @@ public class Programa {
 
 	public static void main(String[] args) {
 	
-		 Map<Character, Integer> alfabeto = new HashMap<Character, Integer>();
+		 Map<Character, Integer> map = new HashMap<Character, Integer>();
 		  
-
-		    alfabeto.put('a', 1);
-		    alfabeto.put('b', 2);
-		    alfabeto.put('c', 3);
-		    alfabeto.put('z', 26);
+		    map.put('a', 1);
+		    map.put('b', 2);
+		    map.put('c', 3);
+		    map.put('z', 26);
 		    
 		    String text = "abba";
 
-		    int valorSoma = calcularSomaPalavra(text, alfabeto);
+		    	// Imprime a soma;
+		    int valorSoma = calcularSomaPalavra(text, map);
 		    System.out.println("A soma de todas as letras é: " + valorSoma);
 
 		}
-
-		private static int calcularSomaPalavra(String palavra, Map<Character, Integer> alfabeto) {
+		
+			//Contabiliza a soma;
+		private static int calcularSomaPalavra(String palavra, Map<Character, Integer> map) {
 		    int valorSoma = 0;
-		    for (char caractere : palavra.toCharArray()) {
-		        if (isCaractereEncontrado(alfabeto, caractere))
-		            valorSoma += getValorCaractere(alfabeto, caractere);
+		    for (char letra : palavra.toCharArray() ) {
+		        if (isCaractereEncontrado(map, letra))
+		            valorSoma += getValorCaractere(map, letra);
 		    }
 		    return valorSoma;
 		}
 
-		private static Integer getValorCaractere(Map<Character, Integer> alfabeto, char caractere) {
-		    return alfabeto.get(caractere);
+		private static Integer getValorCaractere(Map<Character, Integer> map, char letra) {
+		    return map.get(letra);
 		}
 
-		private static boolean isCaractereEncontrado(Map<Character, Integer> alfabeto, char caractere) {
-		    return getValorCaractere(alfabeto, caractere) != null;
+		private static boolean isCaractereEncontrado(Map<Character, Integer> map, char letra) {
+		    return getValorCaractere(map, letra) != null;
 		}
 }
